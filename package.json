@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {},
     "scripts": {
-        "start": "babel-node src/day01/index.js",
+        "start": "babel-node src/days/day01/index.js",
         "test": "jest"
     },
     "devDependencies": {

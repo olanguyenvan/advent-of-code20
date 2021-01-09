@@ -1,4 +1,4 @@
-import { binToDec } from "../utils/bin";
+import { binToDec } from "../../utils/bin";
 
 const SEAT_SPECIFICATION_REGEX = /^([FB]{7})([RL]{3})$/;
 const PLANE_COLUMN_COUNT = 8;
