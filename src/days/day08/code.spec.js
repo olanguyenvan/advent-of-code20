@@ -1,4 +1,12 @@
-import { parseInstruction } from "./code";
+var fs = require("fs");
+const path = require("path");
+
+import {
+    getValueBeforeSecondLoop,
+    getValueAfterTermination,
+    parseInstruction,
+    parseInput,
+} from "./code";
 
 describe("parseInstruction", () => {
     it.each([
@@ -10,5 +18,35 @@ describe("parseInstruction", () => {
         ["jmp +66", { operation: "JMP", argument: 66 }],
     ])("string %s", (testString, expected) => {
         expect(parseInstruction(testString)).toEqual(expected);
+    });
+});
+
+describe("getValueBeforeSecondLoop", () => {
+    it("short input", async () => {
+        await fs.readFile(
+            path.resolve(__dirname, "input"),
+            "utf8",
+            (err, contents) => {
+                const instructions = parseInput(contents);
+                const [value] = getValueBeforeSecondLoop(instructions);
+
+                expect(value).toBe(5);
+            }
+        );
+    });
+});
+
+describe("getValueAfterTermination", () => {
+    it("short input", async () => {
+        await fs.readFile(
+            path.resolve(__dirname, "input"),
+            "utf8",
+            (err, contents) => {
+                const instructions = parseInput(contents);
+                const value = getValueAfterTermination(instructions);
+
+                expect(value).toBe(8);
+            }
+        );
     });
 });

@@ -7,6 +7,13 @@ export function parseInstruction(instruction) {
     return { operation: operation.toUpperCase(), argument: Number(argument) };
 }
 
+export function parseInput(inputContents) {
+    const instructions = inputContents.split("\n");
+    const parsedInstructions = instructions.map(parseInstruction);
+
+    return parsedInstructions;
+}
+
 export function getValueBeforeSecondLoop(instructions) {
     const visitedInstructions = {};
     const instructionsCount = instructions.length;
