@@ -14,3 +14,21 @@ export function findNumberNotBeingSum(items, preambleLength) {
         }
     }
 }
+
+export function findContigiousSetSummingUpTo(items, searchValue) {
+    const itemsCount = items.length;
+
+    for (let i = 0; i < itemsCount; i++) {
+        let sum = 0;
+        let j = 0;
+
+        while (sum < searchValue && i + j < itemsCount) {
+            sum += items[i + j];
+            j += 1;
+        }
+
+        if (sum === searchValue) {
+            return items.slice(i, i + j);
+        }
+    }
+}
