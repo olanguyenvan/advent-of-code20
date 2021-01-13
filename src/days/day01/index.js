@@ -1,10 +1,8 @@
 var fs = require("fs");
 const path = require("path");
 
-import {
-    find2FactorsMakingUpSum,
-    find3FactorsMakingUp2020,
-} from "./factors-sum";
+import { find3FactorsMakingUp2020 } from "./factors-sum";
+import { find2FactorsMakingUpSum } from "../../utils/sum";
 
 fs.readFile(path.resolve(__dirname, "input"), "utf8", main);
 
