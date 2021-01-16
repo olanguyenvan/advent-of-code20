@@ -10,14 +10,10 @@ fs.readFile(path.resolve(__dirname, "input"), "utf8", main);
 
 // ========================
 function main(err, contents) {
-    try {
-        const numbers = contents.split("\n").map(Number);
+    const numbers = contents.split("\n").map(Number);
 
-        const solution1 = solvePart1(numbers);
-        solvePart2(numbers, solution1);
-    } catch (e) {
-        console.log(e);
-    }
+    const solution1 = solvePart1(numbers);
+    solvePart2(numbers, solution1);
 }
 
 function solvePart1(numbers) {
